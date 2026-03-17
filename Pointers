@@ -3,66 +3,73 @@
 
 int main()
 {
-    int y = 10;  
+    // ---------------- BASIC POINTER ----------------
+    int y_int = 10;  
     char *px;
 
-    px = (char *)&y;  
+    px = (char *)&y_int;  
     // Pointer: a variable that stores the address of another variable
-    // &y means "address of y"
-    // px now holds the memory address of y
+    // &y_int means "address of y_int"
+    // px now holds the memory address of y_int (cast to char*)
 
     int a = 5;
     int *pa = &a;
     // pa is a pointer to int
     // it stores the address of variable 'a'
 
-    // Dereferencing a pointer:
-    // accessing the value stored at the address the pointer is pointing to
+    // ---------------- DEREFERENCING ----------------
+    // Dereferencing = accessing the value at the address a pointer holds
     printf("Value of a: %d\n", a);
-    printf("Value of a using pointer: %d\n", *pa);
+    printf("Value of a using pointer (*pa): %d\n", *pa);
     // *pa means "value at address stored in pa"
 
-    // Void pointer:
-    // a pointer not attached to a specific data type
+    // ---------------- VOID POINTER ----------------
+    // Void pointer: not attached to a specific data type
     void *pv;
     pv = &a;
-    // must cast before dereferencing
+
+    // Must cast before dereferencing
     printf("Value using void pointer: %d\n", *(int *)pv);
 
-    // Null pointer:
-    // a pointer that points to nothing (no valid memory location)
+    // ---------------- NULL POINTER ----------------
+    // A pointer that points to nothing
     int *pnull = NULL;
-    // *pnull would cause a crash if used
+    // Dereferencing (*pnull) would crash the program
+
+    // ---------------- CHAR POINTER EXAMPLE ----------------
     char y = 'q';
-    char *px = &y;
-    printf("&y: %p",&y");
-    printf("&px: %p",&px);
-    printf("px: %p\n",px);
+    char *px2 = &y;
 
-    int a = 5;
-    int *pa = &a;
-    printf("a: %d \n",a);
-    printf("pa: %p \n",pa);
-    printf("&a: %p \n",&a);
-    printf("&pa: %p \n",&pa);
+    printf("&y (address of y): %p\n", (void *)&y);
+    printf("&px2 (address of pointer): %p\n", (void *)&px2);
+    printf("px2 (stored address): %p\n", (void *)px2);
 
-    void *pv = &y;
-    printf("pvy: %p \n",pv);
-    pv  = &a;
-    printf("pva: %p \n",pv);
+    // ---------------- INT POINTER DETAILS ----------------
+    printf("a: %d\n", a);
+    printf("pa (address stored in pointer): %p\n", (void *)pa);
+    printf("&a (actual address of a): %p\n", (void *)&a);
+    printf("&pa (address of pointer itself): %p\n", (void *)&pa);
 
+    // ---------------- VOID POINTER REUSE ----------------
+    pv = &y;
+    printf("pv (pointing to y): %p\n", pv);
 
+    pv = &a;
+    printf("pv (pointing to a): %p\n", pv);
+
+    // ---------------- POINTER TO POINTER ----------------
     int **ppa = &pa;
-    printf("**ppa: %p \n",ppa);
-    printf("&**ppa: %p \n",&ppa);
-    printf("pa: %p\n",pa);
-    printf("&pa: %p\n,&pa);
+    // ppa stores the address of pointer pa
 
+    printf("ppa (address of pa): %p\n", (void *)ppa);
+    printf("&ppa (address of pointer-to-pointer): %p\n", (void *)&ppa);
+    printf("pa (address of a): %p\n", (void *)pa);
 
-
-
-
-
+    // Dereferencing levels:
+    // *ppa  -> gives pa (address of a)
+    // **ppa -> gives value of a
+    printf("*ppa (value of pa): %p\n", (void *)*ppa);
+    printf("**ppa (value of a): %d\n", **ppa);
 
     return 0;
 }
