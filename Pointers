@@ -71,5 +71,91 @@ int main()
     printf("*ppa (value of pa): %p\n", (void *)*ppa);
     printf("**ppa (value of a): %d\n", **ppa);
 
+
+
+
+// -------- FUNCTION 1: Modify value --------
+void changeValue(int *p)
+{
+    *p = 100;
+}
+
+// -------- FUNCTION 2: Swap values --------
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// -------- FUNCTION 3: Multiple outputs --------
+void calculate(int x, int y, int *sum, int *product)
+{
+    *sum = x + y;
+    *product = x * y;
+}
+
+// -------- FUNCTION 4: Pointer to pointer --------
+void changePointer(int **pp)
+{
+    static int newVal = 999;
+    *pp = &newVal;
+}
+
+// -------- FUNCTION 5: Array using pointer --------
+void printArray(int *arr, int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+}
+
+
+    // ---------------- BASIC POINTER ----------------
+    int a = 10;
+    int *pa = &a;
+
+    printf("a = %d\n", a);
+    printf("*pa = %d\n\n", *pa);
+
+    // ---------------- FUNCTION: MODIFY VALUE ----------------
+    changeValue(&a);
+    printf("After changeValue: %d\n\n", a);
+
+    // ---------------- FUNCTION: SWAP ----------------
+    int x = 5, y = 20;
+    printf("Before swap: x=%d y=%d\n", x, y);
+
+    swap(&x, &y);
+    printf("After swap: x=%d y=%d\n\n", x, y);
+
+    // ---------------- FUNCTION: MULTIPLE RETURN ----------------
+    int sum, product;
+    calculate(3, 4, &sum, &product);
+
+    printf("Sum = %d, Product = %d\n\n", sum, product);
+
+    // ---------------- VOID POINTER ----------------
+    void *pv = &a;
+    printf("Void pointer value: %d\n\n", *(int *)pv);
+
+    // ---------------- POINTER TO POINTER ----------------
+    int *p = &a;
+    printf("Before changePointer: %d\n", *p);
+
+    changePointer(&p);
+    printf("After changePointer: %d\n\n", *p);
+
+    // ---------------- ARRAY WITH POINTER ----------------
+    int arr[] = {1, 2, 3, 4, 5};
+    printf("Array elements: ");
+    printArray(arr, 5);
+
+    
+
+
+
     return 0;
 }
