@@ -40,6 +40,14 @@ int main()
     printf("px: %p\n",px);
 
     int a = 5;
+    int *pa = &a;
+    printf("a: %d \n",a);
+    printf("pa: %p \n",pa);
+    printf("&a: %p \n",&a);
+    printf("&pa: %p \n",&pa);
+
+
+
 
     return 0;
 }
