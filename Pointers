@@ -33,6 +33,13 @@ int main()
     // a pointer that points to nothing (no valid memory location)
     int *pnull = NULL;
     // *pnull would cause a crash if used
+    char y = 'q';
+    char *px = &y;
+    printf("&y: %p",&y");
+    printf("&px: %p",&px);
+    printf("px: %p\n",px);
+
+    int a = 5;
 
     return 0;
 }
