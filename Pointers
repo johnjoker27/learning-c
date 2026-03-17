@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int y = 10;  
+    char *px;
+
+    px = (char *)&y;  
+    // Pointer: a variable that stores the address of another variable
+    // &y means "address of y"
+    // px now holds the memory address of y
+
+    int a = 5;
+    int *pa = &a;
+    // pa is a pointer to int
+    // it stores the address of variable 'a'
+
+    // Dereferencing a pointer:
+    // accessing the value stored at the address the pointer is pointing to
+    printf("Value of a: %d\n", a);
+    printf("Value of a using pointer: %d\n", *pa);
+    // *pa means "value at address stored in pa"
+
+    // Void pointer:
+    // a pointer not attached to a specific data type
+    void *pv;
+    pv = &a;
+    // must cast before dereferencing
+    printf("Value using void pointer: %d\n", *(int *)pv);
+
+    // Null pointer:
+    // a pointer that points to nothing (no valid memory location)
+    int *pnull = NULL;
+    // *pnull would cause a crash if used
+
+    return 0;
+}
