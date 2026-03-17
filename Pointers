@@ -46,6 +46,21 @@ int main()
     printf("&a: %p \n",&a);
     printf("&pa: %p \n",&pa);
 
+    void *pv = &y;
+    printf("pvy: %p \n",pv);
+    pv  = &a;
+    printf("pva: %p \n",pv);
+
+
+    int **ppa = &pa;
+    printf("**ppa: %p \n",ppa);
+    printf("&**ppa: %p \n",&ppa);
+    printf("pa: %p\n",pa);
+    printf("&pa: %p\n,&pa);
+
+
+
+
 
 
 
