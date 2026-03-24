@@ -72,3 +72,22 @@ void func2(int *pu,int *pv)
     printf("Within func2:*pu=%d,*pv=%d",*pu,*pv);
 
 }
+
+int*larger(int*,int*);//function declaration
+int main()
+{
+    int a = 15;//declaring and initializing a
+    int b = 92;//declaring and initializing b
+    int*p;//declaring the pointer p
+    p = larger(&a,&b);//assigning p to the address of larger value
+    printf("%d is larger",*p);//printing the value pointed to by p
+    return 0;
+}
+int*larger(int*x,int*y)//defining function
+{
+    if(*x>*y)//if pointer x value is greater than that of y
+        return x;//return x
+    else
+        return y;//return y
+}
+
